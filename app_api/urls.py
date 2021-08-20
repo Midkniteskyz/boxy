@@ -1,8 +1,12 @@
 from django.urls import path
 
-from .views import ListTeams, DetailTeam
+from .views import *
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path('', ListTeams.as_view()),
-    path('<int:pk>/', DetailTeam.as_view())
-]
+router = DefaultRouter()
+router.register("teams", TeamsViewSet, basename="teams")
+router.register("schedule", ScheduleViewSet, basename="schedule")
+router.register("square", SquareViewSet, basename="square")
+router.register("cell", CellViewSet, basename="cell")
+router.register("user", UserViewSet, basename="user")
+urlpatterns = router.urls

@@ -3,18 +3,19 @@ from app_users.models import CustomUser
 from app_nfl.models import Team
 
 class Square(models.Model):
-    team_x = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='TeamX')
-    team_y = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='TeamY')
+    team_x = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='teamx')
+    team_y = models.ForeignKey(Team, on_delete=models.PROTECT, related_name='teamy')
     boardStatus = models.BooleanField(default=False)
 
     def __str__(self):
         return f"team_x vs team_y"
 
 class Cell(models.Model):
+    square = models.ForeignKey(Square, on_delete=models.CASCADE, related_name="cells", default=False)
     x = models.IntegerField()
     y = models.IntegerField()
     cellStatus = models.BooleanField(default=False)
-    user = models.OneToOneField(CustomUser, on_delete=models.PROTECT)
+    user = models.ForeignKey(CustomUser, on_delete=models.PROTECT, default=False)
 
     def __str__(self):
         return self.user

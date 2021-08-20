@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from app_nfl import models
-from app_squares import models
-from app_users import models
+from app_nfl.models import Team, Schedule
+from app_squares.models import Square, Cell
+from app_users.models import CustomUser
+
 
 class NFLSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,35 +14,38 @@ class NFLSerializer(serializers.ModelSerializer):
             "loss",
             "draw"
         )
-        model = models.Team
+        model = Team
 
 class ScheduleSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            "id",
             "date",
             "homeTeam",
             "awayTeam"
         )
-        model = models.Schedule
+        model = Schedule
 
 class SquareSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            "id",
             "team_x",
             "team_y",
             "boardStatus"
         )
-        model = models.Square
+        model = Square
 
 class CellSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            "id",
             "x",
             "y",
             "cellStatus",
             "user"
         )
-        model = models.Cell
+        model = Cell
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -49,4 +53,4 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "username",
         )
-        model = models.User
+        model = CustomUser
