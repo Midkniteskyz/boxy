@@ -13,8 +13,8 @@ class Team(models.Model):
 
 class Schedule(models.Model):
     date = models.DateTimeField()
-    homeTeam = models.OneToOneField(Team, on_delete=models.PROTECT, related_name='homeTeam')
-    awayTeam = models.OneToOneField(Team, on_delete=models.PROTECT, related_name='awayTeam')
+    awayTeam = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='awayTeam')
+    homeTeam = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='homeTeam')
 
     def __str__(self):
         return f"{self.homeTeam} vs {self.awayTeam} @{self.date}"

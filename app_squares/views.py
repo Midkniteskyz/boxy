@@ -6,5 +6,4 @@ def index(request):
 
 # Create a new square
 def CreateSquare(request):
-
     return render(request, "square.html")

@@ -62,7 +62,7 @@ footer{
   padding-right: 5px
 }
 
-a{
+.nav > a{
   color: white;
 }
 
@@ -76,14 +76,14 @@ main{
 }
 
 .login-container{
-  background-color: red
+  color:black;
+  background-color: yellow
 }
 
 #app{
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 10fr 1fr;
-    background-color: pink;
 }
 
 .pools-side-container{
@@ -102,25 +102,86 @@ main{
 
 .main-mid-container{
   display: grid;
-  grid-template-rows: 2fr 10fr;
-  background-color: grey;
+  grid-template-rows: 1fr 10fr;
   height: 100%;
 }
 
-.main-mid-container .mid-header{
-  background-color: blue;
+.mid-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
-.main-mid-container .mid-square{
+.mid-header > *{
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+#top-team-container{
+  /* margin-left: 9.2vw; */
+  display: grid;
+  grid-template-columns: 11% 89%;
+}
+
+#pot-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home-team{
+  display: grid;
+  grid-template-rows: auto auto;
+  /* grid-template-columns: repeat(10, auto); */
+}
+
+#home-team-top{
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr
+}
+
+#home-team-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-team-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-team-bottom{
+  display: grid;
+  grid-template-columns: repeat(10, auto)
+}
+
+#home-values{
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: 1
+}
+
+#home-team-values{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.mid-square{
   display: grid;
   grid-template-rows: 2fr 10fr;
-  border: 1px solid red;
 }
 
 .mid-square .square-container{
   display: grid;
   grid-template-columns: 1.25fr 10fr;
-  border: 1px solid blue;
 }
 
 .square-container .square-side{
@@ -128,8 +189,34 @@ main{
   grid-template-columns: 2fr 1fr;
 }
 
-.square-side .side-values{
+.square-side .side-team{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-right: 1px solid black;
+}
 
+#away-team-logo{
+}
+
+#side-team-name{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.side-values{
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: repeat(10,auto);
+}
+
+#side-team-values{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .square-grid {

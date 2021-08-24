@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-from .secrets import *
+# from .secrets import *
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-yng3bqvd*&9)xia+i9u+f06l=3+-1#kc+_z9npk+q!2diq7)*@'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,3 +146,7 @@ LOGOUT_REDIRECT_URL = "home"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+import django_on_heroku
+django_on_heroku.settings(locals())

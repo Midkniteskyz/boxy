@@ -8,7 +8,7 @@ class Square(models.Model):
     boardStatus = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"team_x vs team_y"
+        return f"{self.team_x} vs {self.team_y}"
 
 class Cell(models.Model):
     square = models.ForeignKey(Square, on_delete=models.CASCADE, related_name="cells", default=False)

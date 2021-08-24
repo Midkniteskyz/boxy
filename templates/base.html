@@ -21,7 +21,15 @@
       </aside>
       <!-- Search Bar -->
       <div class="banner-right-side">
-
+        {% if user.is_authenticated %}
+        <div class="mid-header">
+          <div id="user-picture"><p>{{ user.user_image }}</p></div>
+          <div id="user-name"><p>{{ user.username }} | <a href="{% url 'logout' %}">Log Out</a></p></div>
+          <div id="user-funds"><p>Funds: $50</p></div>
+          <div id="user-wins"><p>Wins: {{ user.wins }}</p></div>
+          <div id="user-losses"><p>Losses: {{ user.losses }}</p></div>
+        </div>
+        {% endif %}
         <input type="text" name="search" value="Search Box">
         <!-- Navigation links -->
         <nav class="nav">
@@ -55,27 +63,37 @@
     new Vue({
       el: "#app",
       data: {
+        csrf_token: "",
         x: 0,
         y: 0,
         // TODO how to grab the current user performing the action
-        user: "",
+        user: `{<int:pk>}`,
       },
       delimiters: ['[[', ']]'],
       methods:{
-        getCoords: function (x, y){
+        updateCell: function (x, y){
           console.log(`x coord: ${x}`)
           console.log(`y coord: ${y}`)
           console.log(this.user)
           console.log(this.request)
-          // axios({
-          //   method: "post",
-          //   URL: "https://127.0.0.1:8000/"
-          // }).then(response => this.getCoords = response.data)
+          axios({
+            method: "post",
+            URL: "/apis/v1/cell/",
+            headers: {"X-CSRFToken": this.csrf_token},
+            data: {
+              x: this.x,
+              y: this.y,
+              user: "",
+              square: 0,
+              },
+          }).then(response => {
+            this.updateCell()
+          })
         },
       },
-      mounted: function(){
-        this.user = document.getElementById('username')
-      },
+      mounted: function() {
+          this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        },
     })
   </script>
 </body>
