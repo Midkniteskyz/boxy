@@ -1,3 +1,8 @@
+/* Sporty font */
+
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+/* font-family: 'Graduate', cursive; */
+
 *{
   margin: 0;
   padding: 0;
@@ -12,6 +17,7 @@ header{
   flex-direction: row;
   background-color: #0C1120;
   height: 7vh;
+  font-family: 'Graduate', cursive;
 }
 
 footer{
@@ -83,7 +89,7 @@ main{
 #app{
   display: grid;
   height: 100%;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 2fr 10fr 2fr;
 }
 
 .pools-side-container{
@@ -91,6 +97,14 @@ main{
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
+
+#left{
+  border-right: 1px solid lightgray
+}
+
+#right{
+  border-left: 1px solid lightgray;
 }
 
 .pools-items{
@@ -102,7 +116,7 @@ main{
 
 .main-mid-container{
   display: grid;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: 10fr;
   height: 100%;
 }
 
@@ -228,8 +242,7 @@ main{
 }
 
 .square-grid .square-units {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid #146fb98f;
   text-align: center;
 }
 
@@ -237,4 +250,13 @@ main{
   height: 100%;
   width: 100%;
   border-radius: 0px;
+  border: none;
+  color: white;
+  background-color: rgb(46, 46, 46);
+}
+
+#grid-button:hover {
+  background-color: white;
+  color: #2196F3;
+  font-weight: bold;
 }

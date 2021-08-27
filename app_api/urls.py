@@ -9,4 +9,9 @@ router.register("schedule", ScheduleViewSet, basename="schedule")
 router.register("square", SquareViewSet, basename="square")
 router.register("cell", CellViewSet, basename="cell")
 router.register("user", UserViewSet, basename="user")
-urlpatterns = router.urls
+# router.register("currentuser", CurrentUserView, basename="currentuser")
+# urlpatterns = router.urls
+
+urlpatterns = [
+    path('currentuser/', CurrentUserView.as_view())
+] + router.urls

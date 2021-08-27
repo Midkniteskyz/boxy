@@ -21,8 +21,14 @@ class CellViewSet(viewsets.ModelViewSet):
     queryset = Cell.objects.all()
     serializer_class = CellSerializer
 
+    # def post():
+    #     return Response(seralizer.data)
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+
+class CurrentUserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
 
     def get_object(self):

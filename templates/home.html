@@ -8,14 +8,14 @@
   <div id="app">
 
     <!-- Live pool scrolling box -->
-    <aside class="pools-side-container">
+    <aside class="pools-side-container" id="left">
       <div class="pools-items">
-        <h2><strong><u>Live Pools</u></strong></h2>
+        <h2><strong><u>Live</u></strong></h2>
         <section class="pools-list">
           <ul>
-            <li>Team Name</li>
-            <li>Time Left</li>
-            <li>Pot Size</li>
+            <p>Team Name</p>
+            <p>Time Left</p>
+            <p>Pot Size</p>
           </ul>
         </section>
       </div>
@@ -23,13 +23,13 @@
 
 
     <div class="main-mid-container">
-      <div class="mid-header">
+      <!-- <div class="mid-header">
         <div id="user-picture"><p>{{ user.user_image }}</p></div>
         <div id="user-name"><p>{{ user.username }} | <a href="{% url 'logout' %}">Log Out</a></p></div>
         <div id="user-funds"><p>Funds: $50</p></div>
         <div id="user-wins"><p>Wins: {{ user.wins }}</p></div>
         <div id="user-losses"><p>Losses: {{ user.losses }}</p></div>
-      </div>
+      </div> -->
 
       <!-- <div style="background-color:red;color:white;">
       {% for cell in user.cell_set.all %}
@@ -46,9 +46,9 @@
           </div>
           <div id="home-team">
             <div id="home-team-top">
-              <div id="home-team-logo">{{ team.logo}}</div>
-              <div id="home-team-name">{{ Square.team_x}}</div>
-              <div id="home-team-logo">{{ team.logo }}</div>
+              <div id="home-team-logo">{{ team.logo}}logo</div>
+              <div id="home-team-name">{{ Square.team_x}}team</div>
+              <div id="home-team-logo">{{ team.logo }}logo</div>
             </div>
             <div id="home-team-bottom">
                 <div id="home-team-values">0</div>
@@ -67,9 +67,9 @@
         <div class="square-container">
           <div class="square-side">
             <div class="side-team">
-              <div id="away-team-logo">{{ team.logo }}</div>
-              <div id="side-team-name">{{ schedule.awayTeam }}</div>
-              <div id="away-team-logo">{{ team.logo }}</div> 
+              <div id="away-team-logo">{{ team.logo }} logo</div>
+              <div id="side-team-name">{{ schedule.awayTeam }} team</div>
+              <div id="away-team-logo">{{ team.logo }} logo</div> 
             </div>
             <div class="side-values">
               <div id="side-team-values">0</div>
@@ -90,7 +90,7 @@
             <!-- Main area with populating squares that users can select -->
             <template v-for="y in 10">
               <div class="square-units" v-for="x in 10">
-                <button id="grid-button" v-on:click="updateCell(x-1, y-1)">
+                <button id="grid-button" v-on:click="getCoords(x-1, y-1), getUser(user)">
                   [[ x-1 ]],[[ y-1 ]]
                 </button>
               </div>
@@ -101,14 +101,14 @@
     </div>
 
     <!-- Upcoming pool scrolling box -->
-    <aside class="pools-side-container">
+    <aside class="pools-side-container" id="right">
       <div class="pools-items">
-        <h2><strong><u>Upcoming Pools</u></strong></h2>
+        <h2><strong><u>Upcoming</u></strong></h2>
         <section class="pools-list">
           <ul>
-            <li>Team Name</li>
-            <li>Time Until Start</li>
-            <li>Pool Size</li>
+            <p>Team Name</p>
+            <p>Time Until Start</p>
+            <p>Pool Size</p>
           </ul>
         </section>
       </div>
